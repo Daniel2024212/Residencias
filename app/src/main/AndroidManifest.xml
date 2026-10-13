@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Configuración Android: tema, actividades, entrada de login y FileProvider para capturas. La aplicación de cámara es externa y recibe permisos temporales sobre la URI.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <application
+        android:allowBackup="false"
+        android:usesCleartextTraffic="false"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EvoGMD">
+
+        <!-- Comparte exclusivamente las rutas declaradas en camera_paths; el proveedor no está exportado. -->
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.camera.files"
+            android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/camera_paths" />
+        </provider>
+        <!-- Registro de actividad. exported controla si otras aplicaciones pueden iniciarla. -->
+        <activity android:name=".EncuadreCameraActivity" android:exported="false" android:screenOrientation="portrait" />
+        <activity android:name=".AdminActivity" android:exported="false" android:screenOrientation="portrait" />
+        <!-- Registro de actividad. exported controla si otras aplicaciones pueden iniciarla. -->
+        <activity android:name=".UsuarioActivity" android:exported="false" android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".VentanaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

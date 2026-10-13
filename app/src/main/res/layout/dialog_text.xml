@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Contenido reutilizable para reportes y consultas. AnalysisActivity asigna el texto dinámico a dialog_content.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="#F1F6F8">
+    <!-- Texto asignado por el controlador; se puede seleccionar y copiar. -->
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#172D39" android:id="@+id/dialog_content" android:text="" android:padding="22dp" android:textIsSelectable="true"/>
+</ScrollView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Registro público de usuarios. LoginActivity valida nombre, correo y confirmación. El rol asignado es USER; este formulario no concede administración.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="#F1F6F8">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="28dp" android:gravity="center_vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#087F8C" android:text="●  EVO-GMD"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="32sp" android:textColor="#181E34" android:text="Crea tu cuenta" android:textStyle="bold"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="16sp" android:textColor="#607380" android:text="Registro de usuario. Solo un administrador puede cambiar tu rol."/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/EvoCard">
+            <!-- Nombre de la persona que se registrará. -->
+            <EditText style="@style/EvoInput" android:id="@+id/name" android:hint="Nombre" android:inputType="textCapWords" android:saveEnabled="false"/>
+            <!-- Correo de acceso; Java lo valida y SQLite impone unicidad. -->
+            <EditText style="@style/EvoInput" android:id="@+id/email" android:hint="Correo electrónico" android:inputType="textEmailAddress" android:saveEnabled="false"/>
+            <!-- Entrada de contraseña oculta; saveEnabled=false evita guardarla en el estado de la vista. -->
+            <EditText style="@style/EvoInput" android:id="@+id/password" android:hint="Contraseña" android:inputType="textPassword" android:saveEnabled="false"/>
+            <!-- Repite la contraseña para comprobar coincidencia al crear la cuenta. -->
+            <EditText style="@style/EvoInput" android:id="@+id/confirmation" android:hint="Confirmar contraseña" android:inputType="textPassword" android:saveEnabled="false"/>
+            <!-- Mensaje de validación o resultado de autenticación. -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#607380" android:id="@+id/message" android:text="Usa una contraseña de 8 a 128 caracteres." android:accessibilityLiveRegion="polite"/>
+            <!-- Envía el formulario de login o registro según la pantalla. -->
+            <Button style="@style/EvoButtonPrimary" android:id="@+id/submit" android:text="Crear cuenta"/>
+            <!-- Alterna entre iniciar sesión y crear una cuenta. -->
+            <Button style="@style/EvoButton" android:id="@+id/switch_screen" android:text="Ya tengo cuenta"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="12sp" android:textColor="#607380" android:text="Tus datos se guardan en este dispositivo."/>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,66 @@
+--- third_party/Weka-Android/src/main/java/weka/core/Utils.java	2026-09-21 09:54:29.808321355 -0600
++++ patched_weka_src/weka/core/Utils.java	2026-09-21 10:18:42.107105906 -0600
+@@ -54,6 +54,16 @@
+ public final class Utils implements RevisionHandler {
+ 
+   /**
++   * Android-safe replacement for WekaPackageManager.WEKA_HOME. Loading the
++   * desktop package manager initializes AWT/Swing proxy dialogs, which are not
++   * available on Android and are unnecessary for SMO inference/training.
++   */
++  private static File androidSafeWekaHome() {
++    String home = System.getProperty("user.home", ".");
++    return new File(home, "wekafiles");
++  }
++
++  /**
+    * The natural logarithm of 2.
+    */
+   public static double log2 = Math.log(2);
+@@ -182,8 +192,8 @@
+     /*if (!WekaPackageManager.PROPERTIES_DIR.exists()) {
+       WekaPackageManager.PROPERTIES_DIR.mkdir();
+     }*/
+-    File propFile = new File(WekaPackageManager.PROPERTIES_DIR.toString()
+-      + File.separator + resourceName);
++    File propFile = new File(new File(androidSafeWekaHome(), "props"),
++      resourceName);
+ 
+     if (propFile.exists()) {
+       try {
+@@ -2145,7 +2155,7 @@
+    *         future.
+    */
+   public static boolean getDontShowDialog(String dialogName) {
+-    File wekaHome = WekaPackageManager.WEKA_HOME;
++    File wekaHome = androidSafeWekaHome();
+ 
+     if (!wekaHome.exists()) {
+       return false;
+@@ -2173,7 +2183,7 @@
+    *           $WEKA_HOME/systemDialogs
+    */
+   public static void setDontShowDialog(String dialogName) throws Exception {
+-    File wekaHome = WekaPackageManager.WEKA_HOME;
++    File wekaHome = androidSafeWekaHome();
+ 
+     if (!wekaHome.exists()) {
+       return;
+@@ -2209,7 +2219,7 @@
+       return null; // This must be the first time - no file recorded yet.
+     }
+ 
+-    File wekaHome = WekaPackageManager.WEKA_HOME;
++    File wekaHome = androidSafeWekaHome();
+     File dialogSubDir = new File(wekaHome.toString() + File.separator
+       + "systemDialogs" + File.separator + dialogName);
+ 
+@@ -2231,7 +2241,7 @@
+   public static void setDontShowDialogResponse(String dialogName,
+     String response) throws Exception {
+ 
+-    File wekaHome = WekaPackageManager.WEKA_HOME;
++    File wekaHome = androidSafeWekaHome();
+ 
+     if (!wekaHome.exists()) {
+       return;

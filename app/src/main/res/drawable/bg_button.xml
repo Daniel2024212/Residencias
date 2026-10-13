@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Fondo de tipo shape para button. Define el color de relleno y el radio de las esquinas; los layouts o estilos lo referencian como drawable.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#E7F5F5"/>
+    <corners android:radius="12dp"/>
+</shape>

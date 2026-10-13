@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Panel reutilizable para imagen gris, máscara ROI, lesión y respuestas Gabor. Java asigna el título y el bitmap.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+    <!-- Título dinámico de la imagen de procesamiento. -->
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="21sp" android:textColor="#172D39" android:id="@+id/image_title" android:text=""/>
+    <!-- Bitmap del resultado intermedio; fitCenter mantiene su proporción al mostrarlo. -->
+    <ImageView android:id="@+id/panel_image" android:layout_width="match_parent" android:layout_height="220dp" android:scaleType="fitCenter"/>
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Contenido inicial del panel administrativo antes de analizar una imagen.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="21sp" android:textColor="#172D39" android:text="03  Detalle del procesamiento"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#607380" android:text="Aquí verás la máscara ROI, los filtros y el vector de características."/>
+</LinearLayout>

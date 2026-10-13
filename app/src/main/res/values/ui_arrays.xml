@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Opciones del selector de rol: índice 0 corresponde a USER e índice 1 a ADMIN. El controlador usa ese orden al crear cuentas.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<resources>
+    <string-array name="account_roles">
+        <item>Usuario</item>
+        <item>Administrador</item>
+    </string-array>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Texto técnico seleccionable con origen de ROI, modelo, vector de características y distribución del clasificador.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<!-- Reporte técnico dinámico con características y distribución del modelo. -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="13sp" android:textColor="#607380" android:id="@+id/processing_info" android:text="" android:textIsSelectable="true"/>

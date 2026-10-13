@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Formulario de alta abierto por el administrador. El rol se elige desde account_roles y DatabaseHelper vuelve a comprobar los permisos al guardar.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="#F1F6F8">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <!-- Nombre de la persona que se registrará. -->
+        <EditText style="@style/EvoInput" android:id="@+id/name" android:hint="Nombre" android:inputType="textCapWords" android:saveEnabled="false"/>
+        <!-- Correo de acceso; Java lo valida y SQLite impone unicidad. -->
+        <EditText style="@style/EvoInput" android:id="@+id/email" android:hint="Correo electrónico" android:inputType="textEmailAddress" android:saveEnabled="false"/>
+        <!-- Entrada de contraseña oculta; saveEnabled=false evita guardarla en el estado de la vista. -->
+        <EditText style="@style/EvoInput" android:id="@+id/password" android:hint="Contraseña (mínimo 8 caracteres)" android:inputType="textPassword" android:saveEnabled="false"/>
+        <!-- Repite la contraseña para comprobar coincidencia al crear la cuenta. -->
+        <EditText style="@style/EvoInput" android:id="@+id/confirmation" android:hint="Confirmar contraseña" android:inputType="textPassword" android:saveEnabled="false"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#172D39" android:text="Tipo de cuenta"/>
+        <!-- Selector de rol disponible únicamente en el formulario administrativo. -->
+        <Spinner android:id="@+id/role" android:layout_width="match_parent" android:layout_height="48dp" android:entries="@array/account_roles"/>
+        <!-- Mensaje de validación o progreso del alta administrativa. -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#AF3856" android:id="@+id/account_error" android:text=""/>
+    </LinearLayout>
+</ScrollView>

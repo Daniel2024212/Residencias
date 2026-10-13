@@ -1,0 +1,19 @@
+<!--
+    Textos de recursos del proyecto. Incluye cadenas históricas de entrenamiento que no se muestran en las pantallas actuales.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<resources>
+    <string name="app_name">Evo-GMD Android</string>
+    <string name="abrir_ventana">Abrir ventana Evo-GMD</string>
+    <string name="titulo">Evo-GMD + SVM</string>
+    <string name="subtitulo">4 filtros Gabor BEST · 8 características · Weka SMO lineal</string>
+    <string name="seleccionar_dataset">1. Seleccionar carpeta PH2</string>
+    <string name="entrenar">2. Entrenar / reentrenar SVM</string>
+    <string name="seleccionar_imagen">3. Seleccionar imagen</string>
+    <string name="seleccionar_mascara">4. Seleccionar máscara experta</string>
+    <string name="clasificar">5. Clasificar imagen</string>
+    <string name="limpiar">Limpiar resultados</string>
+    <string name="estado_inicial">Seleccione la carpeta PH2 para entrenar o cargue una imagen para predecir.</string>
+    <string name="imagen_seleccionada">Imagen seleccionada</string>
+    <string name="resultados_visuales">Procesamiento visual</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Fondo de tipo shape para preview. Define el color de relleno y el radio de las esquinas; los layouts o estilos lo referencian como drawable.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#F0F5F7"/>
+    <corners android:radius="14dp"/>
+</shape>

@@ -1,0 +1,17 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+app/build/
+
+# Local Android Studio and build artifacts
+local.properties
+.gradle/
+.idea/
+**/build/
+*.iml
+.DS_Store

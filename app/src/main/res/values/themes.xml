@@ -1,0 +1,17 @@
+<!--
+    Recurso XML themes utilizado por la configuración Android del proyecto.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<resources>
+    <!-- Estilo reutilizable: los atributos se aplican a todas las vistas que lo referencian. -->
+    <style name="Theme.EvoGMD" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#087F8C</item>
+        <item name="android:navigationBarColor">#F1F6F8</item>
+        <item name="android:statusBarColor">#F1F6F8</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowBackground">#F1F6F8</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+</resources>

@@ -1,0 +1,2 @@
+INSERT OR IGNORE INTO usuarios (nombre,correo,password_hash,salt,iteraciones,rol) VALUES ('Administrador','admin@evogmd.local',X'3b9abc7c9293ed42f04913ef35b1e1a14b1c403c61fb16c8c787da6339dd09cf',X'd5d2efb79750bc7513df3e484b201acc',1300000,'ADMIN');
+UPDATE usuarios SET password_hash=X'3b9abc7c9293ed42f04913ef35b1e1a14b1c403c61fb16c8c787da6339dd09cf',salt=X'd5d2efb79750bc7513df3e484b201acc',iteraciones=1300000 WHERE correo='admin@evogmd.local' AND rol='ADMIN';

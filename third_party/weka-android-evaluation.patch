@@ -1,0 +1,42 @@
+--- third_party/Weka-Android/src/main/java/weka/classifiers/evaluation/Evaluation.java	2026-09-21 09:54:29.770192439 -0600
++++ patched_weka_src/weka/classifiers/evaluation/Evaluation.java	2026-09-21 10:21:03.639676865 -0600
+@@ -21,9 +21,6 @@
+ 
+ package weka.classifiers.evaluation;
+ 
+-import java.beans.BeanInfo;
+-import java.beans.Introspector;
+-import java.beans.MethodDescriptor;
+ import java.io.BufferedInputStream;
+ import java.io.BufferedOutputStream;
+ import java.io.BufferedReader;
+@@ -4200,23 +4197,15 @@
+    * @throws Exception if there is a problem reflecting on the classifier
+    */
+   protected static String getGlobalInfo(Classifier classifier) throws Exception {
+-    BeanInfo bi = Introspector.getBeanInfo(classifier.getClass());
+-    MethodDescriptor[] methods;
+-    methods = bi.getMethodDescriptors();
+-    Object[] args = {};
+     String result =
+       "\nSynopsis for " + classifier.getClass().getName() + ":\n\n";
+-
+-    for (MethodDescriptor method : methods) {
+-      String name = method.getDisplayName();
+-      Method meth = method.getMethod();
+-      if (name.equals("globalInfo")) {
+-        String globalInfo = (String) (meth.invoke(classifier, args));
+-        result += globalInfo;
+-        break;
+-      }
++    try {
++      Method method = classifier.getClass().getMethod("globalInfo");
++      String globalInfo = (String) method.invoke(classifier);
++      result += globalInfo;
++    } catch (NoSuchMethodException ex) {
++      // The classifier simply has no optional globalInfo() method.
+     }
+-
+     return result;
+   }
+ 

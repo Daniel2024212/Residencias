@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla de administrador. AnalysisActivity enlaza los controles tras comprobar la sesión y permite modelos, cuentas y detalles del procesamiento.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="#F1F6F8">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="22dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/EvoCard" android:background="@drawable/bg_hero">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#80DDDE" android:text="EVO / GMD"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="30sp" android:textColor="#FFFFFF" android:text="Centro de análisis" android:textStyle="bold"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#CCE1E7" android:text="ADMINISTRADOR · Análisis y configuración"/>
+            <!-- Acción que elimina la sesión y vuelve al login. -->
+            <Button style="@style/EvoButton" android:id="@+id/logout" android:text="Cerrar sesión"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/EvoCard">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="21sp" android:textColor="#172D39" android:text="Modelo activo"/>
+            <!-- Resumen del modelo general activo en SQLite. -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#607380" android:id="@+id/model_info" android:text="Preparando base de datos…" android:textIsSelectable="true"/>
+            <!-- Consulta el reporte almacenado junto al modelo general. -->
+            <Button style="@style/EvoButton" android:id="@+id/report" android:text="Ver reporte de evaluación"/>
+            <!-- Solicita un modelo serializado compatible; requiere rol ADMIN. -->
+            <Button style="@style/EvoButton" android:id="@+id/import_model" android:text="Importar modelo entrenado (.dat)"/>
+            <!-- Abre la lista de cuentas y las opciones administrativas. -->
+            <Button style="@style/EvoButton" android:id="@+id/users" android:text="Administrar cuentas"/>
+            <!-- Consulta los nombres y clases de imágenes almacenadas. -->
+            <Button style="@style/EvoButton" android:id="@+id/dataset" android:text="Consultar imágenes en SQLite"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/EvoCard">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="21sp" android:textColor="#172D39" android:text="01  Imagen original"/>
+            <!-- Vista previa de la imagen original seleccionada; no muestra las respuestas Gabor. -->
+            <ImageView android:id="@+id/preview" android:layout_width="match_parent" android:layout_height="235dp" android:scaleType="fitCenter" android:background="@drawable/bg_preview" android:contentDescription="Imagen seleccionada"/>
+            <!-- Abre el selector de documentos de Android. -->
+            <Button style="@style/EvoButton" android:id="@+id/select_image" android:text="Seleccionar imagen"/>
+            <!-- Abre la cámara normal del teléfono; la captura confirmada se analiza automáticamente. -->
+            <Button style="@style/EvoButton" android:id="@+id/camera" android:text="Tomar foto"/>
+            <!-- Ejecuta el análisis de la imagen seleccionada cuando el modelo está disponible. -->
+            <Button style="@style/EvoButtonPrimary" android:id="@+id/predict" android:text="Analizar imagen"/>
+            <!-- Indicador de trabajo cuya visibilidad cambia mientras se carga o analiza. -->
+            <ProgressBar android:id="@+id/progress" android:layout_width="match_parent" android:layout_height="32dp"/>
+            <!-- Mensaje de estado accesible; Java actualiza el contenido según la operación. -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="14sp" android:textColor="#607380" android:id="@+id/status" android:text="Preparando tu espacio…" android:accessibilityLiveRegion="polite"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/EvoCard">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="21sp" android:textColor="#172D39" android:text="02  Resultado"/>
+            <!-- Salida Baja probabilidad o Alta probabilidad y estados de espera del clasificador. -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="24sp" android:textColor="#172D39" android:id="@+id/result" android:text="Tu resultado aparecerá aquí." android:accessibilityLiveRegion="polite"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" android:paddingBottom="8dp" android:textSize="12sp" android:textColor="#607380" android:text="Clasificación experimental. No sustituye una valoración médica."/>
+            <!-- PDF generado localmente; el guardado SQLite pendiente continúa automáticamente, sin botón. -->
+            <Button style="@style/EvoButton" android:id="@+id/save_pdf" android:text="Guardar PDF" />
+            <!-- Visor integrado; no requiere instalar una aplicación de PDF. -->
+            <Button style="@style/EvoButton" android:id="@+id/open_pdf" android:text="Abrir PDF" />
+            <TextView android:id="@+id/storage_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Preparando reportes…" android:paddingTop="12dp" android:accessibilityLiveRegion="polite" />
+        </LinearLayout>
+        <!-- Contenedor reservado al administrador; sus paneles se inflan desde XML al finalizar el análisis. -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/EvoCard" android:id="@+id/details">
+            <!-- Reutiliza un layout independiente para evitar duplicar la estructura visual. -->
+            <include layout="@layout/processing_placeholder"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,5 @@
+<!--
+    Rutas limitadas que FileProvider puede compartir con la aplicación de cámara. La captura se guarda en el subdirectorio camera de caché.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<paths xmlns:android="http://schemas.android.com/apk/res/android"><cache-path name="photos" path="camera/" /></paths>

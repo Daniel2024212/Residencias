@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Estilos compartidos de tarjetas, botones y campos. Centralizan dimensiones, márgenes, colores y fondos utilizados por los layouts.
+    La lógica y los eventos permanecen en Java; este archivo declara recursos o presentación.
+-->
+<resources>
+    
+
+    <!-- Estilo reutilizable: los atributos se aplican a todas las vistas que lo referencian. -->
+    <style name="EvoCard">
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_marginBottom">18dp</item>
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+    
+
+    <!-- Estilo reutilizable: los atributos se aplican a todas las vistas que lo referencian. -->
+    <style name="EvoButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#087F8C</item>
+        <item name="android:background">@drawable/bg_button</item>
+    </style>
+    
+
+    <!-- Estilo reutilizable: los atributos se aplican a todas las vistas que lo referencian. -->
+    <style name="EvoButtonPrimary" parent="EvoButton">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/bg_primary</item>
+    </style>
+    
+
+    <!-- Estilo reutilizable: los atributos se aplican a todas las vistas que lo referencian. -->
+    <style name="EvoInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#181E34</item>
+        <item name="android:background">@drawable/bg_input</item>
+    </style>
+    
+
+</resources>
